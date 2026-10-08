@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bagian-Bagian Bunga</title>
+
+    <style>
+
+        /* ==============================
+           RESET
+        ============================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* ==============================
+           BODY
+        ============================== */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5fff2;
+            color: #222;
+        }
+
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        header {
+            background: linear-gradient(135deg, #2e8b32, #64b846);
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+
+        /* ==============================
+           CONTAINER
+        ============================== */
+
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 25px auto;
+        }
+
+
+        /* ==============================
+           PETUNJUK
+        ============================== */
+
+        .petunjuk {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .petunjuk strong {
+            color: #21852b;
+        }
+
+
+        /* ==============================
+           GAMBAR BUNGA
+        ============================== */
+
+        .gambar-bunga {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gambar-bunga img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+
+        /* ==============================
+           SVG AREA KLIK
+        ============================== */
+
+        .hotspot-svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 100%;
+
+            pointer-events: auto;
+        }
+
+
+        /* ==============================
+           AREA YANG BISA DIKLIK
+        ============================== */
+
+        .hotspot {
+            fill: rgba(255, 255, 0, 0);
+            stroke: transparent;
+            stroke-width: 5;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        /* Saat mouse diarahkan ke bagian bunga */
+
+        .hotspot:hover {
+            fill: rgba(255, 230, 0, 0.25);
+            stroke: #ff9800;
+        }
+
+
+        /* ==============================
+           DAFTAR BAGIAN BUNGA
+        ============================== */
+
+        .daftar {
+            margin-top: 25px;
+
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .daftar h2 {
+            text-align: center;
+            color: #287d2d;
+        }
+
+
+        /* Grid tombol */
+
+        .daftar-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 12px;
+        }
+
+
+        /* Tombol */
+
+        .daftar button {
+            padding: 13px;
+
+            border: none;
+
+            background: #e9f7e5;
+
+            color: #246b29;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+
+        /* Hover tombol */
+
+        .daftar button:hover {
+            background: #c9edc2;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            color: #666;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            .daftar-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         HEADER
+    ============================== -->
+
+    <header>
+
+        <h1>
+            🌸 Bagian-Bagian Bunga
+        </h1>
+
+        <p>
+            Klik bagian bunga pada gambar untuk membuka Wikipedia
+        </p>
+
+    </header>
+
+
+
+    <div class="container">
+
+
+        <!-- ==============================
+             PETUNJUK
+        ============================== -->
+
+        <div class="petunjuk">
+
+            💡
+
+            <strong>Petunjuk:</strong>
+
+            Klik bagian-bagian bunga yang ingin kamu pelajari.
+            Wikipedia akan terbuka di tab baru.
+
+        </div>
+
+
+
+        <!-- ==============================
+             GAMBAR BUNGA
+        ============================== -->
+
+        <div class="gambar-bunga">
+
+
+            <!-- GAMBAR UTAMA -->
+
+            <img
+                src="bunga.jpg"
+                alt="Gambar struktur bunga"
+            >
+
+
+            <!-- ==============================
+                 SVG AREA KLIK
+            ============================== -->
+
+            <svg
+                class="hotspot-svg"
+                viewBox="0 0 1389 902"
+                preserveAspectRatio="none"
+            >
+
+
+                <!-- ==================================
+                     MAHKOTA BUNGA - KIRI
+                ================================== -->
+
+                <path
+                    class="hotspot"
+
+                    onclick="showInfo('Kelopak Bunga')"
+
+                    d="
+                    M90 620
+                    C90 430 190 330 340 300
+                    C430 280 520 330 600 420
+                    L650 600
+                    C500 650 330 690 170 710
+                    C110 700 90 660 90 620
+                    Z
+                    "
+                />
+
+
+                <!-- ==================================
+                     MAHKOTA BUNGA - KANAN
+                ================================== -->
+
+                <path
+                    class="hotspot"
+
+                    onclick="showInfo('Kelopak Bunga')"
+
+                    d="
+                    M1280 620
+                    C1280 430 1190 330 1040 300
+                    C950 280 870 330 790 420
+                    L740 600
+                    C890 650 1060 690 1220 710
+                    C1270 700 1290 660 1280 620
+                    Z
+                    "
+                />
+
+
+                <!-- ==================================
+                     MAHKOTA BUNGA - BAGIAN ATAS
+                ================================== -->
+
+                <path
+                    class="hotspot"
+
+                    onclick="showInfo('Mahkota Bunga')"
+
+                    d="
+                    M340 300
+                    C420 170 550 100 690 150
+                    C820 90 970 170 1050 300
+                    L800 560
+                    L590 560
+                    Z
+                    "
+                />
+
+
+
+                <!-- ==================================
+                     BENANG SARI
+                ================================== -->
+
+                <path
+                    class="hotspot"
+
+                    onclick="showInfo('Benang Sari')"
+
+                    d="
+                    M600 270
+                    L625 680
+                    L650 680
+                    L625 270
+                    Z
+                    "
+                />
+
+
+                <path
+                    class="hotspot"
+
+                    onclick="showInfo('Benang Sari')"
+
+                    d="
+                    M660 280
+                    L680 680
+                    L705 680
+                    L690 280
+                    Z
+                    "
+                />
+
+
+                <path
+                    class="hotspot"
+
+                    onclick="showInfo('Benang Sari')"
+
+                    d="
+                    M720 280
+                    L725 680
+                    L750 680
+                    L745 280
+                    Z
+                    "
+                />
+
+
+                <path
+                    class="hotspot"
+
+                    onclick="showInfo('Benang Sari')"
+
+                    d="
+                    M770 280
+                    L770 680
+                    L795 680
+                    L795 280
+                    Z
+                    "
+                />
+
+
+
+                <!-- ==================================
+                     KEPALA SARI / ANTHER
+                ================================== -->
+
+                <ellipse
+                    class="hotspot"
+
+                    onclick="showInfo('Kepala Sari')"
+
+                    cx="610"
+                    cy="255"
+                    rx="25"
+                    ry="28"
+                />
+
+
+                <ellipse
+                    class="hotspot"
+
+                    onclick="showInfo('Kepala Sari')"
+
+                    cx="665"
+                    cy="285"
+                    rx="24"
+                    ry="28"
+                />
+
+
+                <ellipse
+                    class="hotspot"
+
+                    onclick="showInfo('Kepala Sari')"
+
+                    cx="780"
+                    cy="285"
+                    rx="24"
+                    ry="28"
+                />
+
+
+                <ellipse
+                    class="hotspot"
+
+                    onclick="showInfo('Kepala Sari')"
+
+                    cx="850"
+                    cy="350"
+                    rx="27"
+                    ry="25"
+                />
+
+
+                <ellipse
+                    class="hotspot"
+
+                    onclick="showInfo('Kepala Sari')"
+
+                    cx="570"
+                    cy="340"
+                    rx="27"
+                    ry="25"
+                />
+
+
+                <ellipse
+                    class="hotspot"
+
+                    onclick="showInfo('Kepala Sari')"
+
+                    cx="810"
+                    cy="350"
+                    rx="27"
+                    ry="25"
+                />
+
+
+
+                <!-- ==================================
+                     PUTIK
+                ================================== -->
+
+                <path
+                    class="hotspot"
+
+                    onclick="showInfo('Putik')"
+
+                    d="
+                    M665 180
+                    C650 300 655 450 670 590
+                    C650 610 635 640 645 680
+                    L750 680
+                    C760 640 745 610 730 590
+                    C745 450 750 300 735 180
+                    Z
+                    "
+                />
+
+
+
+                <!-- ==================================
+                     KEPALA PUTIK
+                ================================== -->
+
+                <ellipse
+                    class="hotspot"
+
+                    onclick="showInfo('Kepala Putik')"
+
+                    cx="700"
+                    cy="195"
+
+                    rx="45"
+                    ry="30"
+                />
+
+
+
+                <!-- ==================================
+                     OVARIUM / BAKAL BUAH
+                ================================== -->
+
+                <ellipse
+                    class="hotspot"
+
+                    onclick="showInfo('Ovarium / Bakal Buah')"
+
+                    cx="700"
+                    cy="665"
+
+                    rx="100"
+                    ry="95"
+                />
+
+
+
+                <!-- ==================================
+                     BAKAL BIJI / OVUL
+                ================================== -->
+
+                <ellipse
+                    class="hotspot"
+
+                    onclick="showInfo('Bakal Biji / Ovul')"
+
+                    cx="710"
+                    cy="660"
+
+                    rx="35"
+                    ry="40"
+                />
+
+
+
+                <!-- ==================================
+                     KELOPAK BUNGA
+                ================================== -->
+
+                <path
+                    class="hotspot"
+
+                    onclick="showInfo('Kelopak Bunga')"
+
+                    d="
+                    M520 665
+                    C570 700 620 730 700 735
+                    C780 730 830 700 880 665
+                    L850 760
+                    C790 800 610 800 550 760
+                    Z
+                    "
+                />
+
+
+
+                <!-- ==================================
+                     TANGKAI BUNGA
+                ================================== -->
+
+                <path
+                    class="hotspot"
+
+                    onclick="showInfo('Tangkai Bunga')"
+
+                    d="
+                    M650 730
+                    L650 875
+                    L750 875
+                    L750 730
+                    Z
+                    "
+                />
+
+
+            </svg>
+
+        </div>
+
+
+
+        <!-- ==============================
+             DAFTAR BAGIAN BUNGA
+        ============================== -->
+
+        <div class="daftar">
+
+
+            <h2>
+                📚 Daftar Bagian Bunga
+            </h2>
+
+
+            <div class="daftar-grid">
+
+
+                <!-- MAHKOTA -->
+
+                <button
+                    onclick="showInfo('Mahkota Bunga')"
+                >
+                    🌸 Mahkota Bunga
+                </button>
+
+
+                <!-- KELOPAK -->
+
+                <button
+                    onclick="showInfo('Kelopak Bunga')"
+                >
+                    🌿 Kelopak Bunga
+                </button>
+
+
+                <!-- BENANG SARI -->
+
+                <button
+                    onclick="showInfo('Benang Sari')"
+                >
+                    🟢 Benang Sari
+                </button>
+
+
+                <!-- KEPALA SARI -->
+
+                <button
+                    onclick="showInfo('Kepala Sari')"
+                >
+                    🟡 Kepala Sari
+                </button>
+
+
+                <!-- PUTIK -->
+
+                <button
+                    onclick="showInfo('Putik')"
+                >
+                    🌱 Putik
+                </button>
+
+
+                <!-- KEPALA PUTIK -->
+
+                <button
+                    onclick="showInfo('Kepala Putik')"
+                >
+                    🟣 Kepala Putik
+                </button>
+
+
+                <!-- OVARIUM -->
+
+                <button
+                    onclick="showInfo('Ovarium / Bakal Buah')"
+                >
+                    🟢 Ovarium / Bakal Buah
+                </button>
+
+
+                <!-- BAKAL BIJI -->
+
+                <button
+                    onclick="showInfo('Bakal Biji / Ovul')"
+                >
+                    🟣 Bakal Biji / Ovul
+                </button>
+
+
+                <!-- TANGKAI -->
+
+                <button
+                    onclick="showInfo('Tangkai Bunga')"
+                >
+                    🌿 Tangkai Bunga
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer>
+
+        Media Pembelajaran Struktur Bunga 🌷
+
+    </footer>
+
+
+
+    <!-- ==============================
+         JAVASCRIPT
+         LINK WIKIPEDIA
+    ============================== -->
+
+    <script>
+
+
+        /*
+        =====================================
+        DAFTAR LINK WIKIPEDIA
+        =====================================
+        */
+
+        const wikipedia = {
+
+
+            /* MAHKOTA */
+
+            "Mahkota Bunga":
+                "https://id.wikipedia.org/wiki/Mahkota_bunga",
+
+
+            /* KELOPAK */
+
+            "Kelopak Bunga":
+                "https://id.wikipedia.org/wiki/Kelopak_bunga",
+
+
+            /* BENANG SARI */
+
+            "Benang Sari":
+                "https://id.wikipedia.org/wiki/Benang_sari",
+
+
+            /* KEPALA SARI */
+
+            "Kepala Sari":
+                "https://id.wikipedia.org/wiki/Benang_sari",
+
+
+            /* PUTIK */
+
+            "Putik":
+                "https://id.wikipedia.org/wiki/Putik",
+
+
+            /* KEPALA PUTIK */
+
+            "Kepala Putik":
+                "https://id.wikipedia.org/wiki/Putik",
+
+
+            /* OVARIUM */
+
+            "Ovarium / Bakal Buah":
+                "https://id.wikipedia.org/wiki/Bakal_buah",
+
+
+            /* BAKAL BIJI */
+
+            "Bakal Biji / Ovul":
+                "https://id.wikipedia.org/wiki/Bakal_biji",
+
+
+            /* TANGKAI BUNGA */
+
+            "Tangkai Bunga":
+                "https://id.wikipedia.org/wiki/Bunga"
+
+        };
+
+
+
+        /*
+        =====================================
+        FUNGSI MEMBUKA WIKIPEDIA
+        =====================================
+        */
+
+        function showInfo(nama) {
+
+
+            /* Ambil link berdasarkan nama */
+
+            const link = wikipedia[nama];
+
+
+            /* Jika link ditemukan */
+
+            if (link) {
+
+                window.open(
+                    link,
+                    "_blank"
+                );
+
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
